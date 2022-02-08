@@ -1,4 +1,4 @@
-# 허용-함수
+# 허용 함수
 
 ## 전체 허용 함수 목록
 
@@ -14,4 +14,6 @@ tcgetattr, tgetent, tgetflag, tgetnum, tgetstr,
 tgoto, tputs
 ```
 
-***
+{% content-ref url="../functions/readline.md" %}
+[readline.md](../functions/readline.md)
+{% endcontent-ref %}
