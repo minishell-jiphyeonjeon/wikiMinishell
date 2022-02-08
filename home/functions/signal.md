@@ -1,5 +1,4 @@
-
-## Signal
+# Signal
 
 ```c
 #include <signal.h>
@@ -20,15 +19,15 @@
 
     | **No** | Name      | Default Action    | Description                                     |
     | :----: | --------- | ----------------- | ----------------------------------------------- |
-    |   1    | SIGHUP    | terminate process | terminal line hangup                            |
-    |   2    | SIGINT    | terminate process | interrupt program                               |
-    |   3    | SIGQUIT   | create core image | quit program                                    |
-    |   4    | SIGILL    | create core image | illegal instruction                             |
-    |   5    | SIGTRAP   | create core image | trace trap                                      |
-    |   6    | SIGABRT   | create core image | abort program (formerly SIGIOT)                 |
-    |   7    | SIGEMT    | create core image | emulate instruction executed                    |
-    |   8    | SIGFPE    | create core image | floating-point exception                        |
-    |   9    | SIGKILL   | terminate process | kill program                                    |
+    |    1   | SIGHUP    | terminate process | terminal line hangup                            |
+    |    2   | SIGINT    | terminate process | interrupt program                               |
+    |    3   | SIGQUIT   | create core image | quit program                                    |
+    |    4   | SIGILL    | create core image | illegal instruction                             |
+    |    5   | SIGTRAP   | create core image | trace trap                                      |
+    |    6   | SIGABRT   | create core image | abort program (formerly SIGIOT)                 |
+    |    7   | SIGEMT    | create core image | emulate instruction executed                    |
+    |    8   | SIGFPE    | create core image | floating-point exception                        |
+    |    9   | SIGKILL   | terminate process | kill program                                    |
     |   10   | SIGBUS    | create core image | bus error                                       |
     |   11   | SIGSEGV   | create core image | segmentation violation                          |
     |   12   | SIGSYS    | create core image | non-existent system call invoked                |
@@ -54,7 +53,7 @@
 
 </details>
 
-#### signal
+### signal
 
 ```c
 sig_t signal(int sig, sig_t func);
@@ -83,7 +82,7 @@ sig_t signal(int sig, sig_t func);
   * 이후 호출 프로세스가 wait()이나 비슷한 함수를 호출한 경우 자식 프로세스가 종료될 때까지 차단하고 errono ECHILD와 함께 -1을 반환
 * signal handler에서 안전하게 사용할 수 있는 함수들의 목록은 `sigaction()` 설명을 참고
 
-#### kill
+### kill
 
 ```c
 int kill(pid_t pid, int sig);
@@ -93,10 +92,10 @@ int kill(pid_t pid, int sig);
 
 *   `pid`: 신호를 전달받을 프로세스
 
-    | **pid** |                                                                            |
-    | :-----: | -------------------------------------------------------------------------- |
-    |  `>0`   | 지정한 프로세스에만 전달                                                   |
-    |   `0`   | 함수를 호출하는 프로세스와 같은 그룹에 있는 모든 프로세스에 전달           |
-    |  `-1`   | 함수를 호출하는 프로세스가 전송할 수 있는 권한을 가진 모든 프로세스에 전달 |
-    |  `-1>`  | 절대값 프로세스 그룹에 속하는 모든 프로세스에 전달                         |
-* `sig`: 전달할 신호 (참고: [신호란?](undefined.md#Signal))
+    | **pid** |                                            |
+    | :-----: | ------------------------------------------ |
+    |   `>0`  | 지정한 프로세스에만 전달                              |
+    |   `0`   | 함수를 호출하는 프로세스와 같은 그룹에 있는 모든 프로세스에 전달       |
+    |   `-1`  | 함수를 호출하는 프로세스가 전송할 수 있는 권한을 가진 모든 프로세스에 전달 |
+    |  `-1>`  | 절대값 프로세스 그룹에 속하는 모든 프로세스에 전달               |
+* `sig`: 전달할 신호 (참고: [신호란?](../../functions/undefined.md#Signal))
