@@ -14,7 +14,7 @@
   * [구조](home/structure/README.md)
     * [문법](home/structure/structure.md)
     * [구문 분석](home/structure/syntax.md)
-  * 규칙
+  * [규칙](readme/undefined/README.md)
     * [코딩 규칙](home/convention/coding-convention.md)
     * [커밋 규칙](home/convention/commit-convention.md)
   * [더 읽기](home/read-more.md)
