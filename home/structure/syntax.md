@@ -1,6 +1,8 @@
-# Lexer: 구문 분석
+---
+description: bash-parser 분석 결과
+---
 
-## bash-parser 분석하기
+# Lexer: 구문 분석 (2) - ", ', $
 
 ### `“`과 `‘`로만 감싸져있거나 없을 때
 
@@ -50,9 +52,7 @@ echo 1.hello" $USER "world 2.hello" USER "world 3.hello' $USER 'world 4.hello' U
 [ 7] 💬 WORD     7.hello_${USER}_world - expansion(8, 14)
 ```
 
-![](<../../.gitbook/assets/image (2).png>)
-
-``
+![](<../../.gitbook/assets/image (2) (1).png>)
 
 ### `“`과 `‘`로 감싸진 문자열이 여러개 존재할 때
 
@@ -68,25 +68,25 @@ echo 5.$USER42---"$USER"---'$USER'---${USER}42
 /* tokens */
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     1."$USER"---"USER"---"$USER"---"USER"
-										expansion(3, 7, 22, 26)
+                   expansion(3, 7, 22, 26)
 
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     2.$USER---USER---$USER---USER
 
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     3.'USER'---"$USER"---"USER"---'$USER'
-										expansion(12, 16)
+		   expansion(12, 16)
 
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     4.$USER---"$USER"---'$USER'---${USER}
-										expansion(2, 6, 11, 15, 30, 36)
+  		   expansion(2, 6, 11, 15, 30, 36)
 
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     5.$USER42---"$USER"---'$USER'---${USER}42
-										expansion(2, 8, 13, 17, 32, 38)
+ 		   expansion(2, 8, 13, 17, 32, 38)
 ```
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 ### 번외
 
@@ -98,7 +98,7 @@ echo $TEST$TEST=lol$TEST""lol
 /* tokens */
 [ 0] 💬 WORD     echo
 [ 1] 💬 WORD     $TEST$TEST=lol$TEST""lol
-									expansion(0, 4, 5, 9, 14, 18)
+                   expansion(0, 4, 5, 9, 14, 18)
 ```
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (3) (1).png>)

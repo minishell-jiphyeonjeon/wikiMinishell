@@ -1,6 +1,6 @@
 # Parser: AST 구조
 
-![bash-parser의 결과를 AST로 나타낸 그림](<../../.gitbook/assets/image (4).png>)
+![bash-parser의 결과를 AST로 나타낸 그림](<../../.gitbook/assets/image (4) (1).png>)
 
 ### type: Script
 
