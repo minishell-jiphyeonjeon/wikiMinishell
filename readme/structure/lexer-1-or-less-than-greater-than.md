@@ -24,6 +24,21 @@ echo   a     b   c |       cat    -e
 * `<, >`는 같은 문자로 2개까지 올 수 있고, 다른 조합이 올 수 없음
 * [bash에서 가능한 redirection 조합](https://zsh.sourceforge.io/Doc/Release/Redirection.html)이라도 minishell에서는 `<, >, >>`만 인정하고, `<<`(heredoc)은 사용할 수 있지만 `>>>`(herestring)은 사용불가
 
+#### scan OK
+
+```c
+echo |||||
+echo |<
+echo |<<
+echo |>
+echo |>>
+
+echo | | |||       |
+echo <   >  <<     >> < < |> < > |
+```
+
+* 최종 결과는 error지만, scanner 단계에서는 문제없이 구분해줌
+
 #### unexpected token `|`
 
 ![](<../../.gitbook/assets/image (6).png>)
